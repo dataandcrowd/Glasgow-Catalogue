@@ -1,1 +1,1 @@
-# PA
+# PA: Glasgow GIS Catalogue
