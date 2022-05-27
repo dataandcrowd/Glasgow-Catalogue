@@ -1,4 +1,4 @@
-book_filename: "PA"
+book_filename: "Glasgow Data Catalogue"
 new_session: true
 before_chapter_script: _common.R
 delete_merged_file: true
