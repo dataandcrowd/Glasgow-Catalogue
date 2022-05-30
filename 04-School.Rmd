@@ -1,0 +1,68 @@
+# School
+
+Call files: primary schools and intermediate zones
+```{r}
+schools <- 
+  read_sf("GlasgowGIS/Bld_Schools_Glasgow.shp") %>% 
+  select(DataZone, SAPE2014, Rank) %>% 
+  mutate(FID = row_number()) 
+
+iz <- read_sf("GlasgowGIS/Glasgow_IZ.shp")
+code <- read_csv("GlasgowGIS/dz2011_codes_and_labels_21042020.csv")
+```
+
+Taking a glance on the data
+```{r}
+schools %>%
+  st_drop_geometry() %>%
+  glimpse()
+```
+
+
+Summary stats
+```{r}
+schools %>%
+  st_drop_geometry() %>% 
+  get_summary_stats() %>% 
+  print(n = Inf) 
+```
+
+Rank by IZs
+```{r}
+left_join(schools, code, by = "DataZone") %>% 
+  select(FID, DataZone, IntZone, IntZoneName) %>% 
+  rename(InterZone = IntZone) -> sch
+
+sch %>% 
+  group_by(InterZone, IntZoneName) %>% 
+  summarise(no_of_schools = length(FID)) -> schools_area
+
+schools_area$no_of_schools %>% sum
+
+schools_area %>%
+  st_drop_geometry() %>% 
+  arrange(desc(no_of_schools)) %>% 
+  print(n = Inf)
+```
+
+
+Plot
+```{r}
+schools_area %>% st_drop_geometry() -> sch_df
+  
+iz %>% 
+  left_join(sch_df, by = "InterZone") -> schools_choropleth
+
+schools_choropleth %>% 
+  ggplot() +
+  geom_sf(aes(fill = no_of_schools),
+          show.legend = NA) +
+  theme_bw() +
+  scale_fill_continuous(low="thistle2", high="darkred", 
+                        guide="colorbar",na.value="white") +
+  theme(legend.position = "bottom") -> schools_plotly
+
+ggplotly(schools_plotly)
+
+```
+
