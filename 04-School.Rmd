@@ -2,6 +2,10 @@
 
 Call files: primary schools and intermediate zones
 ```{r}
+library(tidyverse)
+library(sf)
+library(plotly)
+library(rstatix)
 schools <- 
   read_sf("GlasgowGIS/Bld_Schools_Glasgow.shp") %>% 
   select(DataZone, SAPE2014, Rank) %>% 

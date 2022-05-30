@@ -1,4 +1,3 @@
-structure
 introduction-of-glasgow
 city-overview
 map-to-give-a-gist-of-the-city
@@ -8,3 +7,4 @@ data-zones
 intermediate-zones
 under-construction
 school
+cover-image-path-to-the-social-sharing-image-like-imagescover.jpg

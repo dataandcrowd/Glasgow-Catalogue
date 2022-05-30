@@ -6,8 +6,3 @@ knitr::opts_chunk$set(
   comment = "#>",
   collapse = TRUE
   )
-
-library(tidyverse)
-library(sf)
-library(plotly)
-library(rstatix)

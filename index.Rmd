@@ -13,7 +13,7 @@ biblio-style: apalike
 csl: chicago-fullnote-bibliography.csl
 ---
 
-# About {.unnumbered}
+# About {-}
 
 This Catalogue offers a handful of geospatial data used for the **Simulation of Physical Activity of Primary School Children in Glasgow City** project. It includes the city's boundary, population, environments, buildings, and so on. Feel free to browse through this book, and drop me a note if you have any enquiries.
 
