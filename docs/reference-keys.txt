@@ -5,6 +5,6 @@ spatial-boundary
 output-area
 data-zones
 intermediate-zones
-under-construction
+population
 school
 cover-image-path-to-the-social-sharing-image-like-imagescover.jpg

@@ -1,7 +1,7 @@
 # School
 
-Call files: primary schools and intermediate zones
-```{r}
+
+```{r echo=F, message=F}
 library(tidyverse)
 library(sf)
 library(plotly)
@@ -15,7 +15,7 @@ iz <- read_sf("GlasgowGIS/Glasgow_IZ.shp")
 code <- read_csv("GlasgowGIS/dz2011_codes_and_labels_21042020.csv")
 ```
 
-Taking a glance on the data
+Call files: primary schools and intermediate zones. I then take a glance at the data
 ```{r}
 schools %>%
   st_drop_geometry() %>%
