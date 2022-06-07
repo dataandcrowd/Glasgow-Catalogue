@@ -1,0 +1,24 @@
+# Land Use
+
+## Name
+
+Land use Glasgow
+
+## Year
+
+Unknown
+
+## Metadata
+
+```{r}
+library(dplyr)
+library(sf)
+
+read_sf("GlasgowGIS/Landuse_Glasgow.shp") %>% 
+  distinct(lu_code, Land_use) %>% 
+  arrange(lu_code)
+
+```
+
+## Source
+

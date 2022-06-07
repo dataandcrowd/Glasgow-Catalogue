@@ -1,6 +1,13 @@
 # School
+## Name
+* Primary Schools in Glasgow GIS shapefiles (Provided by Yoni)
+* Scottish School Roll and Locations (data.gov.uk)
 
+## Year
+* Yoni's data: 2021
+* Scottish School Roll and Locations: Apr 2022
 
+## Metadata
 ```{r echo=F, message=F}
 library(tidyverse)
 library(sf)
@@ -22,8 +29,14 @@ schools %>%
   glimpse()
 ```
 
+## Source
+* Scottish School Roll and Locations: https://data.gov.uk/dataset/9a6f9d86-9698-4a5d-a2c8-89f3b212c52c/scottish-school-roll-and-locations
 
-Summary stats
+
+
+## Example
+
+### Summary stats
 ```{r}
 schools %>%
   st_drop_geometry() %>% 

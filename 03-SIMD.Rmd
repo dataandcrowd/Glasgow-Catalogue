@@ -1,0 +1,47 @@
+# The Scottish Index of Multiple Deprivation (SIMD)
+
+Our research uses many variables provided by the Scottish Index of Multiple Deprivation (SIMD). SIMD is the Scottish Government's standard approach to identify multiple deprivation by geographical areas of Scotland. According to the government's [website](https://www.gov.scot/collections/scottish-index-of-multiple-deprivation-2020/), the index can "help improve understanding about the outcomes and circumstances of people living in the most deprived areas in Scotland".
+
+SIMD[^simd-1] was first published in 2012, and has been updated in 2016 and 2020. The latest version (2020) was revised due to the local stakeholders' requests of corrections for the income domain results for several specific data zones.
+
+[^simd-1]: SIMD is an area-based measure of relative deprivation: not every person in a highly deprived area will themselves be experiencing high levels of deprivation.
+
+> SIMD ranks data zones from **1st as the most deprived** to **6976th as the least deprived**. There are quintiles, deciles, or other measures that group the ranks to certain levels.
+
+## Name
+
+SIMD
+
+## Published Year
+
+2020 Version 2
+
+## Metadata
+
+The table below describes the glossary of the variables mentioned in the SIMD GIS dataset.
+
+```{r message=F, echo=F}
+library(dplyr)
+library(gt)
+readxl::read_excel("SIMD2020v2_glossary.xlsx") %>% 
+  gt(caption = 'SIMDv2 Glossary') %>% 
+  cols_label(
+    Category = md("**Category**"),
+    `Indicator label` = md("**Label**"),
+    `Indicator type`  = md("**Type**"),
+    Description = md("**Description**"))
+
+```
+
+## Source
+
+-   Detailed Description: gov.scot webiste <https://www.gov.scot/collections/scottish-index-of-multiple-deprivation-2020/>
+
+-   Revision notice: <https://www.gov.scot/publications/scottish-index-of-multiple-deprivation-2020v2-revision-notice/>
+
+-   Indicators: <https://www.gov.scot/publications/scottish-index-of-multiple-deprivation-2020v2-indicator-data/>
+
+```{=html}
+<!-- -->
+```
+-   GIS data: <https://www.spatialdata.gov.scot/geonetwork/srv/eng/catalog.search#/metadata/02866b0b-66e5-46ab-9b1c-d433dc3c2fae>

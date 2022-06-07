@@ -1,0 +1,51 @@
+# Population
+
+<!--Description -->
+
+## Name
+
+-   Small Area Population Estimates (SAPE) from the National Records of Scotland
+-   Mid-2020 Population Estimates Scotland
+
+## Year
+
+2021 (Based on June 2020)
+
+## Metadata
+
+-   SAPE2017: 2017 NRS small area population estimates (Count)
+-   WAPE2017: 2017 NRS small area population estimates and state pension age (Count)
+-   Mid-2020 Population Estimates Scotland (Count). Detailed Metadata regarding the metrics, accuracy, and completeness are all linked [here](https://www.nrscotland.gov.uk/files//statistics/population-estimates/mid-20/mid-year-pop-est-20-metadata.pdf)
+    -   Age
+
+    -   Gender
+
+## Source
+
+-   Small area estimates: <https://www.nrscotland.gov.uk/statistics-and-data/statistics/statistics-by-theme/population/population-estimates/2011-based-special-area-population-estimates/small-area-population-estimates>
+-   Scotland Mid-2020 by age and gender: [https://www.nrscotland.gov.uk/statistics-and-data/statistics/statistics-by-theme/population/population-estimates/mid-year-population-estimates/mid-2020](https://www.nrscotland.gov.uk/statistics-and-data/statistics/statistics-by-theme/population/population-estimates/mid-year-population-estimates/mid-2020#){.uri}
+
+## Examples
+
+```{r echo=F, message=F, out.width="100%", fig.cap="2017 NRS small area population estimates."}
+library(sf)
+library(dplyr)
+read_sf("SG_SIMD_2020/SG_SIMD_2020.shp") %>% 
+  filter(LAName == "Glasgow City") -> glasgowmap
+
+plot(glasgowmap[4], main = "")
+```
+
+하이 헬로우 안녕
+
+```{r echo=F, message=F}
+library(kableExtra)
+#Top 10
+glasgowmap %>% 
+  select(DataZone, DZName, SAPE2017) %>% 
+  arrange(desc(SAPE2017)) %>% 
+  st_drop_geometry() %>% 
+  head(10) %>% 
+  kbl()%>%
+  kable_styling()
+```
