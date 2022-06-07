@@ -1,6 +1,8 @@
+tab:unnamed-chunk-1
 introduction-of-glasgow
 city-overview
 map-to-give-a-gist-of-the-city
+the-scottish-index-of-multiple-deprivation-simd
 spatial-boundary
 output-area
 data-zones
@@ -8,3 +10,4 @@ intermediate-zones
 population
 school
 cover-image-path-to-the-social-sharing-image-like-imagescover.jpg
+fig:unnamed-chunk-1

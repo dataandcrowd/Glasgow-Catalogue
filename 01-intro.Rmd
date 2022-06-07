@@ -16,5 +16,32 @@
 -   Climate In spring (March to May), enjoy mild temperatures with the city's parks and gardens filled with spring flowers. The summer months (June to September) can vary between mild and sunny with up to 16 hours of daylight. Winters are colder, with a January average of 4.0°C (39°F) and occasional snow.(<https://peoplemakeglasgow.com>)
 
 ## Map to give a gist of the city
-Wiki Maps
 ![](https://upload.wikimedia.org/wikipedia/commons/thumb/2/28/Glasgow_districts_draft1.png/1200px-Glasgow_districts_draft1.png){width=50%}
+
+Wiki Maps
+
+
+
+## The Scottish Index of Multiple Deprivation (SIMD)
+Our research uses many variables provided by the Scottish Index of Multiple Deprivation (SIMD). 
+SIMD is the Scottish Government's standard approach to identify multiple deprivation by geographical areas of Scotland. 
+According to the government's [website](https://www.gov.scot/collections/scottish-index-of-multiple-deprivation-2020/), the index can "help improve understanding about the outcomes and circumstances of people living in the most deprived areas in Scotland".
+
+SIMD^[SIMD is an area-based measure of relative deprivation: not every person in a highly deprived area will themselves be experiencing high levels of deprivation.] was first published in 2012, and has been updated in 2016 and 2020. 
+The latest version (2020) was revised due to the local stakeholders' requests of corrections for the income domain results for several specific data zones.
+
+> SIMD ranks data zones from **1st as the most deprived** to **6976th as the least deprived**. There are quintiles, deciles, or other measures that group the ranks to certain levels.
+
+```{r message=F, echo=F}
+library(dplyr)
+library(gt)
+readxl::read_excel("SIMD2020v2_glossary.xlsx") %>% 
+  gt(caption = 'SIMDv2 Glossary') %>% 
+  cols_label(
+    Category = md("**Category**"),
+    `Indicator label` = md("**Label**"),
+    `Indicator type`  = md("**Type**"),
+    Description = md("**Description**"))
+
+```
+
